@@ -1,0 +1,10 @@
+routes:
+    react:
+        path: '{reactRouting}'
+        methods:
+            - GET
+        options:
+            action: index
+            controller: 'MicroCRM\Frontend\React\Controller\ReactController'
+        defaults:
+            reactRouting: ~

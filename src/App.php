@@ -24,7 +24,7 @@ return function () use ($basedir) {
             $env = getenv('APP_ENV') ?: 'dev';
 
             $envFileCompiled = $basePath . '/' .  '.env.' .$env . '.php';
-            if(file_exists($envFileCompiled)) {
+            if (file_exists($envFileCompiled)) {
                 $content = include $envFileCompiled;
                 parent::__construct($content);
 

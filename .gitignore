@@ -7,3 +7,6 @@
 /public/build/
 /lib
 .env.*
+yarn-error.log
+docker/db/var
+docker/keycloak

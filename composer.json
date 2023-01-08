@@ -9,14 +9,18 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "micro/kernel-app": "^1",
         "micro/plugin-console": "^1",
         "micro/plugin-http": "^1",
         "micro/plugin-logger-monolog": "^1",
+        "micro/plugin-oauth2-client": "^1.0",
+        "micro/plugin-oauth2-client-keycloak": "^1.0",
+        "micro/plugin-security": "^1.0",
         "micro/plugin-twig": "^1",
         "oleksiibulba/webpack-encore-plugin": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.4",
+        "symfony/property-access": "^6.2",
         "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {
@@ -46,7 +50,7 @@
         },
         "sort-packages": true,
         "platform": {
-            "php": "8.1"
+            "php": "8.2"
         }
     },
     "scripts": {

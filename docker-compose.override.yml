@@ -14,7 +14,8 @@ services:
       #- /srv/app/vendor
     environment:
       # See https://xdebug.org/docs/all_settings#mode 
-      XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+      XDEBUG_MODE: 'debug' # "${XDEBUG_MODE:-off}"
+      PHP_IDE_CONFIG: "serverName=micro-crm"
     extra_hosts:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
@@ -30,3 +31,34 @@ services:
   node:
     volumes:
       - ./:/app
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:19.0
+    restart: unless-stopped
+    environment:
+      KC_DB: mysql
+      KC_DB_URL: jdbc:mysql://db:3306/keycloak
+      KC_DB_USERNAME: root
+      KC_DB_PASSWORD: local
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/server.crt.pem
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/server.key.pem
+      DB_VENDOR: MYSQL
+      DB_ADDR: db
+      DB_PORT: 3306
+      DB_DATABASE: keycloak
+      DB_USER: root
+      DB_PASSWORD: local
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the MySQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "connectTimeout=30000"
+    volumes:
+      - ./docker/keycloak/server.crt.pem:/opt/keycloak/conf/server.crt.pem
+      - ./docker/keycloak/server.key.pem:/opt/keycloak/conf/server.key.pem
+    command:
+      - "start-dev"
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    depends_on:
+      - db

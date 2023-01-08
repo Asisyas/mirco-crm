@@ -9,13 +9,13 @@ services:
   db:
     image: mysql:8
     restart: on-failure
-    environment:
-      MYSQL_DATABASE: ${APP_DATABASE:-}
-      MYSQL_ROOT_PASSWORD: ${APP_DATABASE_PASSWORD:-}
+    env_file:
+      - .env.local
     ports:
       - '3306:3306'
     volumes:
       - db:/var/lib/mysql/
+      - ./docker/db/init:/docker-entrypoint-initdb.d
   php:
     build:
       context: .

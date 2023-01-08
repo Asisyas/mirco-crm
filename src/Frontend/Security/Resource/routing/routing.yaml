@@ -1,0 +1,24 @@
+routes:
+    security_configuration:
+        path: /configuration
+        methods:
+            - GET
+        options:
+            action: receiveConfiguration
+            controller: 'MicroCRM\Frontend\Security\Controller\AuthConfigurationController'
+    security_auth_code:
+        path: /token/login
+        methods:
+            - POST
+            - GET # TODO: remove
+        options:
+            action: processCodeRequest
+            controller: 'MicroCRM\Frontend\Security\Controller\AuthorizationController'
+    security_token_refresh:
+        path: /token/refresh
+        methods:
+            - POST
+            - GET # TODO: remove
+        options:
+            action: refreshToken
+            controller: 'MicroCRM\Frontend\Security\Controller\AuthorizationController'

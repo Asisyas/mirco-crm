@@ -1,4 +1,21 @@
 routes:
-  crm_home_plugin:
-    format: yaml
-    resource: '@HomePlugin/Resource/routing/routing.yaml'
+#    plugins:
+#        format: yaml
+#        prefix: api/
+#        resource: ./secured.yaml
+#        options:
+#            handler:
+#                request:
+#                    - MicroCRM\Frontend\Security\Handler\Request\RequestHeaderAuthenticateHandler
+    authentication:
+        format: yaml
+        prefix: /security
+        resource: '@SecurityPlugin/Resource/routing/routing.yaml'
+        options:
+            handler:
+                response:
+                    - MicroCRM\Frontend\Common\ResponseTransformer\ResponseTransformerHandler
+                    - MicroCRM\Frontend\Common\ResponseTransformer\ResponseExceptionHandler
+    frontend:
+        format: yaml
+        resource: '@ReactPlugin/Resource/routing/routing.yaml'

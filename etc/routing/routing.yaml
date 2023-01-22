@@ -1,12 +1,12 @@
 routes:
-#    plugins:
-#        format: yaml
-#        prefix: api/
-#        resource: ./secured.yaml
-#        options:
-#            handler:
-#                request:
-#                    - MicroCRM\Frontend\Security\Handler\Request\RequestHeaderAuthenticateHandler
+    plugins:
+        format: yaml
+        prefix: api/
+        resource: ./secured.yaml
+        options:
+            handler:
+                request:
+                    - MicroCRM\Frontend\Security\Handler\Request\RequestHeaderAuthenticateHandler
     authentication:
         format: yaml
         prefix: /security

@@ -1,3 +1,5 @@
 routes:
-    plugins:
-        
+    user_frontend_plugin:
+        format: yaml
+        prefix: /users
+        resource: '@UserFrontendPlugin/Resource/routing/routing.yaml'

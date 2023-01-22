@@ -1,0 +1,9 @@
+routes:
+    user:
+        format: yaml
+        path: /getUser
+        methods:
+            - GET
+        options:
+            action: index
+            controller: 'MicroCRM\Frontend\User\Controller\GetUserController'

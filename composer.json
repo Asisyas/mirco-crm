@@ -18,7 +18,7 @@
         "micro/plugin-oauth2-client-keycloak": "^1.0",
         "micro/plugin-security": "^1.0",
         "micro/plugin-twig": "^1",
-        "oleksiibulba/webpack-encore-plugin": "^1.0",
+        "oleksiibulba/webpack-encore-plugin": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.4",
         "symfony/property-access": "^6.2",
         "vlucas/phpdotenv": "^5.4"

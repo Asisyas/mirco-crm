@@ -16,7 +16,7 @@ use MicroCRM\Frontend\Security\AuthConfig\Expander\AuthConfigTransferExpanderFac
 use MicroCRM\Frontend\Security\AuthConfig\Expander\AuthConfigTransferExpanderFactoryInterface;
 use MicroCRM\Frontend\Security\AuthConfig\Expander\Impl\OAuth2Expander;
 use MicroCRM\Frontend\Security\Authenticator\AuthenticatorFactoryInterface;
-use MicroCRM\Frontend\Security\Authenticator\HeaderAuthenticatorFactory;
+use MicroCRM\Frontend\Security\Authenticator\CookieAuthenticatorFactory;
 use MicroCRM\Frontend\Security\Configuration\SecurityPluginConfigurationInterface;
 use MicroCRM\Frontend\Security\Facade\SecurityFacade;
 use MicroCRM\Frontend\Security\Facade\SecurityFacadeInterface;
@@ -71,7 +71,7 @@ class SecurityPlugin implements ConfigurableInterface, DependencyProviderInterfa
 
     protected function createAuthenticatorFactory(): AuthenticatorFactoryInterface
     {
-        return new HeaderAuthenticatorFactory(
+        return new CookieAuthenticatorFactory(
             $this->securityClient,
             $this->createAuthTokenFactory(),
             $this->configuration()

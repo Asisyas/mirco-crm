@@ -8,5 +8,9 @@ interface SecurityPluginConfigurationInterface
 {
     const HEADER_NAME_DEFAULT = 'Authorization';
 
+    const COOKIE_NAME_DEFAULT = 'token';
+
     public function getAuthHeaderName(): string;
+
+    public function getAuthCookieName(): string;
 }

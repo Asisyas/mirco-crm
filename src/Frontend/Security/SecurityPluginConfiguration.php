@@ -13,4 +13,9 @@ class SecurityPluginConfiguration extends PluginConfiguration implements Securit
     {
         return self::HEADER_NAME_DEFAULT;
     }
+
+    public function getAuthCookieName(): string
+    {
+        return self::COOKIE_NAME_DEFAULT;
+    }
 }

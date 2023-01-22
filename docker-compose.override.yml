@@ -16,6 +16,7 @@ services:
       # See https://xdebug.org/docs/all_settings#mode 
       XDEBUG_MODE: 'debug' # "${XDEBUG_MODE:-off}"
       PHP_IDE_CONFIG: "serverName=micro-crm"
+      PHP_CS_FIXER_IGNORE_ENV: 1
     extra_hosts:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
